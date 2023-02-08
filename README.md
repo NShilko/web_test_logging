@@ -1,1 +1,5 @@
-# web_test_logging
+# Web logging with Django project
+
+Root account:
+- user: admin
+- password: root

@@ -1,0 +1,68 @@
+2023-02-08 13:03:56,490 INFO autoreload Watching for file changes with StatReloader
+2023-02-08 13:04:00,963 INFO basehttp "GET / HTTP/1.1" 200 2270
+2023-02-08 13:04:01,116 WARNING log Not Found: /favicon.ico
+2023-02-08 13:04:01,117 INFO basehttp - Broken pipe from ('127.0.0.1', 59876)
+2023-02-08 13:04:03,031 INFO basehttp "GET /news HTTP/1.1" 301 0
+2023-02-08 13:04:03,064 INFO basehttp "GET /news/ HTTP/1.1" 200 4840
+2023-02-08 13:04:04,221 INFO basehttp "GET /news/create HTTP/1.1" 301 0
+2023-02-08 13:04:04,264 INFO basehttp "GET /news/create/ HTTP/1.1" 200 3392
+2023-02-08 13:04:07,258 INFO basehttp "GET /articles/create HTTP/1.1" 301 0
+2023-02-08 13:04:07,276 INFO basehttp "GET /articles/create/ HTTP/1.1" 200 3390
+2023-02-08 13:04:13,980 ERROR log Internal Server Error: /articles/create/
+Traceback (most recent call last):
+  File "C:\Python310\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python310\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python310\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python310\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Python310\lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Python310\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Python310\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Python310\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Python310\lib\site-packages\django\forms\models.py", line 549, in save
+    self._save_m2m()
+  File "C:\Python310\lib\site-packages\django\forms\models.py", line 530, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Python310\lib\site-packages\django\db\models\fields\related.py", line 1966, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1169, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1087, in add
+    self._add_items(
+  File "C:\Python310\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1373, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Python310\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Python310\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "D:\SiteNews\site_news\publication\signals.py", line 9, in notify_news
+    send_email_news_celery(instance.pk)
+  File "D:\SiteNews\site_news\publication\send_email.py", line 43, in send_email_news_celery
+    msg_prop.send()
+  File "C:\Python310\lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python310\lib\site-packages\django\core\mail\backends\smtp.py", line 124, in send_messages
+    new_conn_created = self.open()
+  File "C:\Python310\lib\site-packages\django\core\mail\backends\smtp.py", line 91, in open
+    self.connection.login(self.username, self.password)
+  File "C:\Python310\lib\smtplib.py", line 750, in login
+    raise last_exception
+  File "C:\Python310\lib\smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+  File "C:\Python310\lib\smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'Authentication failed')
+2023-02-08 13:04:14,082 ERROR basehttp "POST /articles/create/ HTTP/1.1" 500 145
+2023-02-08 13:09:45,214 INFO autoreload Watching for file changes with StatReloader
+2023-02-08 13:09:51,523 INFO basehttp "GET / HTTP/1.1" 200 2270
+2023-02-08 13:09:53,183 INFO basehttp "GET /news/create/ HTTP/1.1" 200 3392
+2023-02-08 13:10:03,070 INFO basehttp "POST /news/create/ HTTP/1.1" 302 0
+2023-02-08 13:10:03,087 INFO basehttp "GET /news/308 HTTP/1.1" 200 2584
+2023-02-08 13:13:12,714 INFO autoreload Watching for file changes with StatReloader

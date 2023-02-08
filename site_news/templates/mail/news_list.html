@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Привет, дорогой друг!</h3>
+    <h5>Список всех статей за прошедшую неделю!</h5>
+    <hr>
+    <ol>
+        {% for publ in msg %}
+            <li><a href="http://127.0.0.1:8000/news/{{ publ.link }}">{{ publ.tittle}}</a> (<i>Опубликовано:{{ publ.date }}</i>)</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>

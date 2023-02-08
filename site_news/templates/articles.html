@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filter %}
+
+{% block title %}
+Статья
+{% endblock title %}
+
+{% block content %}
+<br />
+<div class="card w-75 text-center mx-auto">
+    <div class="card-header">
+        <p><a class="badge badge-info" href="{% url 'articles_update' publ.id %}">Редактировать</a> / <a class="badge badge-danger" href="{% url 'articles_delete' publ.id %}">Удалить</a></p>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title" style="text-transform: uppercase">{{ publ.title|censor }}</h5>
+        <p class="card-text">{{ publ.main_text|censor|linebreaks}}</p>
+    </div>
+    <div class="card-footer text-muted">
+        <p>{{ publ.date|date_converter}}</p>
+        <p>Рейтинг новости: {{ publ.rate }}</p>
+    </div>
+</div>
+{% endblock content %}

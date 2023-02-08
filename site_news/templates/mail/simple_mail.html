@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Привет, дорогой друг!</h3>
+    <h5>Новая статья в твоём любимом разделе!</h5>
+    <hr>
+    <p> {{ msg.message|truncatechars:50 }} </p>
+    <hr>
+    <a href="http://127.0.0.1:8000/news/{{ msg.post_id }}">Читать продолжение</a>
+</body>
+</html>

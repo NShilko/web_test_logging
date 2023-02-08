@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    Удаление публикации
+{% endblock title %}
+{% block content %}
+<h1 style="margin-top: 1em">Подтверждение удаления</h1>
+<hr>
+<h5 class="text-danger">Вы уверены, что хотите удалить публикацию?</h5>
+    <br />
+    <p>{{ object.title }}</p>
+    <br />
+    <i>{{ object.main_text }}</i>
+<form action="" style="margin-top: 3em" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-lg btn-danger" value="Удалить" />
+</form>
+{% endblock content %}
